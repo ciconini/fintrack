@@ -44,3 +44,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+/src/assets/icons/fontawesome-free-6.4.0-web/metadata
+/src/assets/icons/fontawesome-free-6.4.0-web/less
+/src/assets/icons/fontawesome-free-6.4.0-web/scss

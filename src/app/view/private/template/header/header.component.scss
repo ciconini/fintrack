@@ -1,0 +1,24 @@
+@import '_variables.scss';
+header {
+    display: flex;
+    .header-logo {
+        width: $sidebarWidth;
+        min-width: $sidebarWidth;
+        background-color: $dark1;
+        padding: 8px;
+        display: flex;
+        justify-content: center;
+        .logo {
+            img {
+                max-height: 30px;
+            }
+        }
+    }
+    .header-content {
+        width: 100%;
+        background-color: $grey2;
+        display: flex;
+        justify-content: flex-end;
+        padding: 8px;
+    }
+}

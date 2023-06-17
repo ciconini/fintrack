@@ -1,0 +1,28 @@
+@import '_variables.scss';
+
+aside#sidebar {
+    max-width: $sidebarWidth;
+    min-width: $sidebarWidth;
+    height: calc(100vh - 46px);
+    background-color: $dark2;
+    position: absolute;
+    .sidebar-menu {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        .menu-item {
+            a {
+                display: block;
+                padding: 15px;
+                color: $white;
+                &.active {
+                    background-color: darken($dark2, 5%);
+                }
+                &:hover {
+                    background-color: lighten($dark2, 5%);
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

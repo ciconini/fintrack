@@ -1,0 +1,8 @@
+@import '_variables';
+
+.dashboard {
+    margin-left: $sidebarWidth;
+    max-height: calc(100% - 46px);
+    min-height: calc(100vh - 46px);
+    overflow-y: auto;
+}

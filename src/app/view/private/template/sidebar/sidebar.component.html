@@ -1,0 +1,9 @@
+<aside id="sidebar">
+    <ul class="sidebar-menu">
+        <li class="menu-item" *ngFor="let item of menu">
+            <a [routerLink]="item.link" routerLinkActive="active">
+                {{item.label}}
+            </a>
+        </li>
+    </ul>
+</aside>
