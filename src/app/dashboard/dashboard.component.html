@@ -1,1 +1,16 @@
-<p>dashboard works!</p>
+<div class="dashboard-reports">
+  <div class="expenses-reports">
+    <h2>Expenses</h2>
+    <ul class="expense-list">
+      @for (expense of expenses; track $index) {
+        <li class="expense-item">
+          <div class="expense-type">{{expense.type}}</div>
+          <div class="expense-info">
+            {{expense.date | date:'dd/MM/yy'}} {{expense.name}}
+          </div>
+          <div class="expense-value">{{expense.value | currency:'EUR'}}</div>
+        </li>
+      }
+    </ul>
+  </div>
+</div>

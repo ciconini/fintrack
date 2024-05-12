@@ -1,1 +1,23 @@
-<p>header works!</p>
+<header>
+  FinTrack
+</header>
+<aside>
+  <div class="nav-menu">
+    <ul class="menu">
+      @for (menuItem of menu; track $index) {
+        <li class="menu-item">
+          <a [routerLink]="[menuItem.url]">{{menuItem.label}}</a>
+          @if (menuItem.children && menuItem.children.length > 0) {
+            <ul class="submenu">
+              @for (submenuItem of menuItem.children; track $index) {
+                <li class="menu-item">
+                  <a [routerLink]="[submenuItem.url]">{{submenuItem.label}}</a>
+                </li>
+              }
+            </ul>
+          }
+        </li>
+      }
+    </ul>
+  </div>
+</aside>
