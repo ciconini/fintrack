@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Expense, ExpenseType } from '../expenses/util/model/expense';
 import { Subscription } from 'rxjs';
 import { ExpensesService } from '../expenses/data-access/expenses.service';
@@ -11,9 +11,9 @@ import { CommonModule } from '@angular/common';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
   ExpenseTypes = ExpenseType;
-  sub: Subscription = new Subscription;
+  _expenseSub: Subscription = new Subscription;
   expenses: Expense[] = [];
 
   constructor(
@@ -21,8 +21,12 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.sub = this.expenseService.getExpenses().subscribe((resp:Expense[]) => {
+    this._expenseSub = this.expenseService.getExpenses().subscribe((resp:Expense[]) => {
       this.expenses = resp;
     })
+  }
+
+  ngOnDestroy(): void {
+    this._expenseSub.unsubscribe();
   }
 }

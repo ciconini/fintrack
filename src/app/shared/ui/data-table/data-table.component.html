@@ -1,0 +1,39 @@
+<div class="table-container">
+  <table class="table">
+    <thead>
+      @if (fields && showHeader) {
+        <tr>
+          @for (field of fields | keyvalue; track $index) {
+            <th>
+              {{field.value}}
+            </th>
+          }
+        </tr>
+      }
+    </thead>
+    <tbody>
+      @for (item of data; track $index) {
+        <tr>
+          @for (field of fields | keyvalue; track $index) {
+            <td>
+              @switch (field.key) {
+                @case('value') {
+                  {{getVal(item, field.key) | currency: 'EUR'}}
+                }
+                @case('date') {
+                  {{getVal(item, field.key) | date:'dd/MM/yy'}}
+                }
+                @case('type') {
+                  <i [ngClass]="getIcon(getVal(item, field.key))"></i> {{getVal(item, field.key) | type}}
+                }
+                @default() {
+                  {{getVal(item, field.key)}}
+                }
+              }
+            </td>
+          }
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
