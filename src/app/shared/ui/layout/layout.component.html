@@ -1,1 +1,17 @@
-<p>layout works!</p>
+<app-header></app-header>
+<div class="main-container">
+  <aside>
+    <div class="nav-menu">
+      <ul class="menu">
+        @for (menuItem of menu; track $index) {
+          <li class="menu-item">
+            <a [routerLink]="[menuItem.url]" [routerLinkActive]="'active'"><i class="menu-icon {{menuItem.icon}}"></i> {{menuItem.label}}</a>
+          </li>
+        }
+      </ul>
+    </div>
+  </aside>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>

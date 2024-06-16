@@ -1,0 +1,10 @@
+@import 'colors';
+
+.table-container {
+  background-color: $light;
+  padding: 8px;
+  border-radius: 10px;
+  table.table {
+    --bs-table-bg: $light;
+  }
+}

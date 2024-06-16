@@ -1,0 +1,7 @@
+<h1><i class="fa-solid fa-receipt"></i> Expenses</h1>
+<div class="action-bar">
+  <app-button (click)="addNewExpense()"><i class="fa-solid fa-plus"></i> Add New</app-button>
+</div>
+
+<!-- Expense list -->
+<app-expense-list [filterOptions]="filterOptions"></app-expense-list>
