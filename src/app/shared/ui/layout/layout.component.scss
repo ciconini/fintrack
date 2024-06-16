@@ -1,0 +1,39 @@
+@import 'header/header.component.scss';
+
+.main-container {
+  display: flex;
+  height: 100%;
+  aside {
+    width: $width;
+    min-width: $width;
+    background-color: $light;
+    .nav-menu {
+      margin-top: 20px;
+      padding: 0 20px;
+      .menu-item {
+        margin-bottom: 8px;
+        a {
+          padding: 12px 20px;
+          display: block;
+          color: $medium;
+          &:hover {
+            color: $primary;
+          }
+          &.active {
+            color: $white;
+            background-color: $dark;
+            border-radius: 10px;
+          }
+          .menu-icon {
+            min-width: 20px;
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+  }
+  main {
+    width: calc(100% - 230px);
+    padding: 0 20px;
+  }
+}

@@ -10,5 +10,21 @@ import { RouterModule } from '@angular/router';
   styleUrl: './layout.component.scss'
 })
 export class LayoutComponent {
-
+  menu = [
+    {
+      label: 'Dashboard',
+      url: '/dashboard',
+      icon: 'fa-solid fa-home'
+    },
+    {
+      label: 'Expenses',
+      url: '/expenses',
+      icon: 'fa-solid fa-receipt'
+    },
+    {
+      label: 'Incomes',
+      url: '/incomes',
+      icon:  'fa-solid fa-sack-dollar'
+    }
+  ]
 }

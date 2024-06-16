@@ -10,31 +10,4 @@ import { RouterModule } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  menu = [
-    {
-      label: 'Dashboard',
-      url: '',
-    },
-    {
-      label: 'Expenses',
-      url: 'expenses',
-      children: [
-        {
-          label: 'Add Expense',
-          url: 'expenses/add'
-        }
-      ]
-    },
-    {
-      label: 'Incomes',
-      url: 'incomes',
-      children: [
-        {
-          label: 'Add Income',
-          url: 'income/add'
-        }
-      ]
-    }
-  ]
-
 }
