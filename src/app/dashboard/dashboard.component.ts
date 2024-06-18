@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Expense, ExpenseType } from '../expenses/util/model/expense';
+import { Expense } from '../expenses/util/model/expense';
 import { Subscription } from 'rxjs';
 import { ExpensesService } from '../expenses/data-access/expenses.service';
 import { CommonModule } from '@angular/common';
@@ -12,7 +12,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent implements OnInit, OnDestroy {
-  ExpenseTypes = ExpenseType;
   _expenseSub: Subscription = new Subscription;
   expenses: Expense[] = [];
 

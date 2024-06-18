@@ -1,14 +1,9 @@
+import { ValueType } from "../../../shared/model/types";
+
 export interface Expense {
   date: Date;
   id: string;
   name: string;
-  type: ExpenseType;
+  type: ValueType;
   value: number;
-}
-
-export enum ExpenseType {
-  'CLOTHING' = 'Clothing',
-  'GROCERY' = 'Grocery',
-  'MEAL' = 'Meals',
-  'TRANSPORT' = 'Transport'
 }

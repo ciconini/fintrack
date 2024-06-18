@@ -6,5 +6,9 @@
   border-radius: 10px;
   table.table {
     --bs-table-bg: $light;
+    .id-field {
+      color: $medium;
+      font-size: 12px;
+    }
   }
 }

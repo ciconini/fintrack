@@ -3,35 +3,20 @@
     <thead>
       @if (fields && showHeader) {
         <tr>
-          @for (field of fields | keyvalue; track $index) {
-            <th>
-              {{field.value}}
-            </th>
-          }
+          <th>Date</th>
+          <th>Value</th>
+          <th>Name</th>
+          <th>Type</th>
         </tr>
       }
     </thead>
     <tbody>
       @for (item of data; track $index) {
         <tr>
-          @for (field of fields | keyvalue; track $index) {
-            <td>
-              @switch (field.key) {
-                @case('value') {
-                  {{getVal(item, field.key) | currency: 'EUR'}}
-                }
-                @case('date') {
-                  {{getVal(item, field.key) | date:'dd/MM/yy'}}
-                }
-                @case('type') {
-                  <i [ngClass]="getIcon(getVal(item, field.key))"></i> {{getVal(item, field.key) | type}}
-                }
-                @default() {
-                  {{getVal(item, field.key)}}
-                }
-              }
-            </td>
-          }
+          <td>{{item.date | date:'dd/MM/YY'}}</td>
+          <td>{{item.value | currency:'EUR'}}</td>
+          <td>{{item.name}}<br/><small class="id-field">{{item._id}}</small></td>
+          <td><i [ngClass]="getIcon(getVal(item, 'type'))"></i> {{getVal(item, 'type') | type}}</td>
         </tr>
       }
     </tbody>

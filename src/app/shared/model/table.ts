@@ -1,7 +1,8 @@
 export class ExpensesTableFields {
-  _id = "ID";
-  date = "Date";
+  name = "Name";
   value = "Value";
+  date = "Date";
+  _id = "ID";
   type = "Type";
 }
 export class IncomesTableFields {
