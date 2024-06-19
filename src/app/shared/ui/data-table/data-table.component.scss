@@ -4,11 +4,12 @@
   background-color: $light;
   padding: 8px;
   border-radius: 10px;
-  table.table {
+  table {
+    background-color: $light;
     --bs-table-bg: $light;
     .id-field {
       color: $medium;
-      font-size: 12px;
+      font-size: 10px;
     }
   }
 }

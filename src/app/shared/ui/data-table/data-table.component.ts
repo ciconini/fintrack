@@ -1,12 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CommonModule, KeyValue } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { getTypeIcon } from '../../util/type-function';
 import { TypePipe } from '../../util/pipes/type.pipe';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-data-table',
   standalone: true,
-  imports: [CommonModule, TypePipe],
+  imports: [CommonModule, TypePipe, MatTableModule],
   templateUrl: './data-table.component.html',
   styleUrl: './data-table.component.scss'
 })
@@ -15,6 +16,7 @@ export class DataTableComponent {
   @Input() showHeader: boolean = true;
   @Output() itemClicked = new EventEmitter();
   @Input() fields: any;
+  displayedColumns: string[] = ['date', 'value', 'name', 'type'];
 
   getVal(item: string, key: any) {
     return item[key];
