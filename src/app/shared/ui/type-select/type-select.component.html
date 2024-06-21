@@ -1,0 +1,13 @@
+<div class="type-select">
+  <button mat-flat-button color="basic" (click)="showOptions = !showOptions"><i [class]="selectedType.icon"></i> {{selectedType.label}}</button>
+  @if(showOptions) {
+    <div class="options-box">
+      <ul class="options-list">
+        <li (click)="selectType({label:'ALL TYPES',icon:''})">ALL TYPES</li>
+        @for (option of typeOptions; track $index) {
+          <li (click)="selectType(option)"><i [class]="option.icon"></i> {{option.label}}</li>
+        }
+      </ul>
+    </div>
+  }
+</div>

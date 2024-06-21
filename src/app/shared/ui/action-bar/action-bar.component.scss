@@ -1,0 +1,15 @@
+.action-bar {
+  margin-top: 16px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  .right-side {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+    button, app-type-select {
+      margin: 0 0 0 8px;
+    }
+  }
+}

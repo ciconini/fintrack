@@ -1,16 +1,16 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ButtonComponent } from '../../../shared/ui/button/button.component';
 import { FilterOptions } from '../../../shared/model/filter-options';
-import {
-  MatDialog
-} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ExpenseDetailComponent } from '../expense-detail/expense-detail.component';
 import { Subscription } from 'rxjs';
-import { Expense, ExpenseResponse } from '../../util/model/expense';
+import { ExpenseResponse } from '../../util/model/expense';
 import { ExpensesService } from '../../data-access/expenses.service';
 import { DataTableComponent } from '../../../shared/ui/data-table/data-table.component';
 import { ExpensesTableFields } from '../../../shared/model/table';
-import { MatButton } from '@angular/material/button';
+import { ActionBarComponent } from '../../../shared/ui/action-bar/action-bar.component';
+import { TypesService } from '../../../shared/data-access/types.service';
+import { ValueType } from '../../../shared/model/types';
 
 @Component({
   selector: 'app-expense-dashboard',
@@ -18,7 +18,7 @@ import { MatButton } from '@angular/material/button';
   imports: [
     ButtonComponent, 
     DataTableComponent,
-    MatButton
+    ActionBarComponent
   ],
   templateUrl: './expense-dashboard.component.html',
   styleUrl: './expense-dashboard.component.scss'
@@ -27,16 +27,20 @@ export class ExpenseDashboardComponent implements OnInit, OnDestroy{
   filterOptions: FilterOptions = new FilterOptions();
   _dialogSub: Subscription = new Subscription();
   _expensesSub: Subscription = new Subscription();
+  _typeSub: Subscription = new Subscription();
   expensesResponse?: ExpenseResponse;
   expenseFields: ExpensesTableFields = new ExpensesTableFields;
+  typeOptions: ValueType[] = [];
   
   constructor(
     public dialog: MatDialog,
-    private expenseService: ExpensesService
+    private expenseService: ExpensesService,
+    private readonly typeService: TypesService,
   ){}
 
   ngOnInit(): void {
     this.getExpenses();
+    this.getTypeOptions();
   }
 
   public openExpenseDetailModal(id?: Event): void {
@@ -52,10 +56,16 @@ export class ExpenseDashboardComponent implements OnInit, OnDestroy{
     });
   }
 
-  private getExpenses(): void {
-    this._expensesSub = this.expenseService.getExpenses().subscribe((resp: ExpenseResponse) => {
+  public getExpenses(): void {
+    this._expensesSub = this.expenseService.filterExpenses(this.filterOptions).subscribe((resp: ExpenseResponse) => {
       this.expensesResponse = resp;
     });
+  }
+
+  public getTypeOptions(): void {
+    this._typeSub = this.typeService.getTypes().subscribe((types) => {
+      this.typeOptions = types;
+    })
   }
 
   ngOnDestroy(): void {

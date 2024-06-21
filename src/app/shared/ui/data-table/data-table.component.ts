@@ -16,7 +16,7 @@ export class DataTableComponent {
   @Input() showHeader: boolean = true;
   @Output() itemClicked = new EventEmitter();
   @Input() fields: any;
-  displayedColumns: string[] = ['date', 'value', 'name', 'type', 'actions'];
+  displayedColumns: string[] = ['date', 'value', 'name', 'type'];
 
   getVal(item: string, key: any) {
     return item[key];

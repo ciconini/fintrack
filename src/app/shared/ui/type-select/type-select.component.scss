@@ -1,0 +1,28 @@
+@import 'colors';
+
+.type-select {
+  position: relative;
+  button {
+    text-transform: capitalize;
+  }
+  .options-box {
+    position: absolute;
+    width: 180px;
+    left: -20px;
+    top: 42px;
+    background-color: $white;
+    box-shadow: 0 5px 7px 0 $medium;
+    border-radius: 8px;
+    .options-list {
+      li {
+        padding: 6px 16px;
+        color: $medium;
+        &:hover {
+          cursor: pointer;
+          color: $primary;
+        }
+      }
+    }
+  }
+}
+

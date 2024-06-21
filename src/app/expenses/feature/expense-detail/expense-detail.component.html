@@ -11,12 +11,12 @@
       @if (typeOptions && typeOptions.length > 0) {
         <mat-form-field>
           <mat-label>Expense Type</mat-label>
-            <mat-select formControlName="type">
-              @for (option of typeOptions; track $index) {
-                <mat-option [value]="option.label"><i [class]="option.icon"></i> {{option.label}}</mat-option>
-              }
-            </mat-select>
-          </mat-form-field>
+          <mat-select formControlName="type">
+            @for (option of typeOptions; track $index) {
+              <mat-option [value]="option.label"><i [class]="option.icon"></i> {{option.label}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
       }
     </div>
     <div class="form-line">

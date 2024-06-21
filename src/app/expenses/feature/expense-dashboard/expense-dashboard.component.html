@@ -1,7 +1,5 @@
 <h1><i class="fa-solid fa-receipt"></i> Expenses</h1>
-<div class="action-bar">
-  <button mat-flat-button color="accent" (click)="openExpenseDetailModal()"><i class="fa-solid fa-plus"></i> Add New</button>
-</div>
+<app-action-bar [filterOptions]="filterOptions" (addNew)="openExpenseDetailModal()" (filterChange)="getExpenses()" [typeOptions]="typeOptions"></app-action-bar>
 
 <!-- Expense list -->
 <div class="data-table">

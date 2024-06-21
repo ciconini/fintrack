@@ -3,6 +3,7 @@ import { Expense, ExpenseResponse } from '../util/model/expense';
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../../../environments/environment.local';
+import { FilterOptions } from '../../shared/model/filter-options';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,17 @@ export class ExpensesService {
 
   public getExpenses(): Observable<ExpenseResponse> {
     return this.http.get<ExpenseResponse>(`${environment.api}/expenses`).pipe(
+      map(response => {
+        return response
+      }),
+      catchError((error: HttpErrorResponse) => {
+        return throwError(() => error)
+      })
+    );
+  }
+
+  public filterExpenses(filterOptions: FilterOptions): Observable<ExpenseResponse> {
+    return this.http.post<ExpenseResponse>(`${environment.api}/expenses/filter`, filterOptions).pipe(
       map(response => {
         return response
       }),

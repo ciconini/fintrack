@@ -1,0 +1,12 @@
+<div class="action-bar">
+  <div class="left-side">
+    <button mat-flat-button color="accent" (click)="addEvent()"><i class="fa-solid fa-plus"></i> Add New</button>
+  </div>
+
+  <div class="right-side">
+    <button mat-flat-button color="basic" (click)="changeDate()"><i class="fa-solid fa-calendar"></i> {{filterOptions.dateStart | date:'dd/MM/YY'}} - {{filterOptions.dateEnd | date:'dd/MM/YY'}}</button>
+    <app-type-select [typeOptions]="typeOptions" (changeSelect)="changeType($event)"></app-type-select>
+    <button mat-flat-button color="basic" (click)="changeOrder()"><i class="fa-solid" [ngClass]="filterOptions.order === 'ASC' ? 'fa-sort-up' : 'fa-sort-down'"></i> Change Order</button>
+  </div>
+
+</div>
