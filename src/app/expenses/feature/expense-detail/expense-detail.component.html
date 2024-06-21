@@ -37,6 +37,15 @@
   </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button (click)="cancel()">Cancel</button>
-  <button mat-flat-button color="primary" (click)="saveExpense()">Save</button>
+  <div class="d-flex justify-content-between w-100">
+    <div class="left-side">
+      @if (data.id) {
+        <button mat-button color="warn" align="start" (click)="deleteExpense()">Delete</button>
+      }
+    </div>
+    <div class="right-side">
+      <button mat-button (click)="cancel()">Cancel</button>
+      <button mat-flat-button color="primary" (click)="saveExpense()" [mat-dialog-close]="">Save</button>
+    </div>
+  </div>
 </mat-dialog-actions>

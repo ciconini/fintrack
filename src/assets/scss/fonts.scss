@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200..700;1,200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 $raleway: Raleway, Arial, sans-serif;
+$lato: Lato, Arial, sans-serif;
 
 * {
+  font-family: $lato;
+}
+h1,h2,h3,h4,h5,h6 {
   font-family: $raleway;
 }

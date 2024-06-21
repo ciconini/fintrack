@@ -4,7 +4,7 @@ import { FilterOptions } from '../../../shared/model/filter-options';
 import {
   MatDialog
 } from '@angular/material/dialog';
-import { ExpenseAddComponent } from '../expense-add/expense-add.component';
+import { ExpenseDetailComponent } from '../expense-detail/expense-detail.component';
 import { Subscription } from 'rxjs';
 import { Expense } from '../../util/model/expense';
 import { ExpensesService } from '../../data-access/expenses.service';
@@ -39,13 +39,14 @@ export class ExpenseDashboardComponent implements OnInit, OnDestroy{
     this.getExpenses();
   }
 
-  public addNewExpense(): void {
-    const dialogRef = this.dialog.open(ExpenseAddComponent, {
+  public openExpenseDetailModal(id?: Event): void {
+    const dialogRef = this.dialog.open(ExpenseDetailComponent, {
       width: '320px',
-      panelClass: 'add-modal'
+      panelClass: 'add-modal',
+      data: {id: id}
     });
     dialogRef.afterClosed().subscribe(result => {
-      if(result) {
+      if(result.event !== 'cancel') {
         this.getExpenses();
       }
     });

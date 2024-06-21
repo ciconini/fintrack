@@ -16,7 +16,7 @@ export class DataTableComponent {
   @Input() showHeader: boolean = true;
   @Output() itemClicked = new EventEmitter();
   @Input() fields: any;
-  displayedColumns: string[] = ['date', 'value', 'name', 'type'];
+  displayedColumns: string[] = ['date', 'value', 'name', 'type', 'actions'];
 
   getVal(item: string, key: any) {
     return item[key];
@@ -24,5 +24,9 @@ export class DataTableComponent {
 
   getIcon(item: string): string {
     return getTypeIcon(item);
+  }
+
+  openItem(id: string): void {
+    this.itemClicked.emit(id);
   }
 }

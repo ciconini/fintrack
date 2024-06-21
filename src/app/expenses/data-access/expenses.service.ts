@@ -47,7 +47,7 @@ export class ExpensesService {
   }
 
   public updateExpense(id: string, payload: any): Observable<Expense> {
-    return this.http.patch<Expense>(`${environment.api}/expense/${id}`, payload).pipe(
+    return this.http.patch<Expense>(`${environment.api}/expenses/${id}`, payload).pipe(
       map(response => {
         return response
       }),
@@ -58,7 +58,7 @@ export class ExpensesService {
   }
 
   public deleteExpense(id: string): Observable<Expense> {
-    return this.http.delete<Expense>(`${environment.api}/expense/${id}`).pipe(
+    return this.http.delete<Expense>(`${environment.api}/expenses/${id}`).pipe(
       map(response => {
         return response
       }),
