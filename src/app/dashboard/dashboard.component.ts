@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Expense } from '../expenses/util/model/expense';
+import { ExpenseResponse } from '../expenses/util/model/expense';
 import { Subscription } from 'rxjs';
 import { ExpensesService } from '../expenses/data-access/expenses.service';
 import { CommonModule } from '@angular/common';
@@ -13,15 +13,15 @@ import { CommonModule } from '@angular/common';
 })
 export class DashboardComponent implements OnInit, OnDestroy {
   _expenseSub: Subscription = new Subscription;
-  expenses: Expense[] = [];
+  expenseResponse?: ExpenseResponse;
 
   constructor(
     private expenseService: ExpensesService
   ) {}
 
   ngOnInit(): void {
-    this._expenseSub = this.expenseService.getExpenses().subscribe((resp:Expense[]) => {
-      this.expenses = resp;
+    this._expenseSub = this.expenseService.getExpenses().subscribe((resp:ExpenseResponse) => {
+      this.expenseResponse = resp;
     })
   }
 

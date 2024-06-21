@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Expense } from '../util/model/expense';
+import { Expense, ExpenseResponse } from '../util/model/expense';
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../../../environments/environment.local';
@@ -13,8 +13,8 @@ export class ExpensesService {
     private http: HttpClient
   ) { }
 
-  public getExpenses(): Observable<Expense[]> {
-    return this.http.get<Expense[]>(`${environment.api}/expenses`).pipe(
+  public getExpenses(): Observable<ExpenseResponse> {
+    return this.http.get<ExpenseResponse>(`${environment.api}/expenses`).pipe(
       map(response => {
         return response
       }),

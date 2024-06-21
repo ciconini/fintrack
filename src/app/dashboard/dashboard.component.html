@@ -2,7 +2,7 @@
   <div class="expenses-reports">
     <h2>Expenses</h2>
     <ul class="expense-list">
-      @for (expense of expenses; track $index) {
+      @for (expense of expenseResponse?.expenses; track $index) {
         <li class="expense-item">
           <div class="expense-type">{{expense.type}}</div>
           <div class="expense-info">

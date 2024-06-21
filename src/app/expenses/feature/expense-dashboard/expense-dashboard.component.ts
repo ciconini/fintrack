@@ -6,7 +6,7 @@ import {
 } from '@angular/material/dialog';
 import { ExpenseDetailComponent } from '../expense-detail/expense-detail.component';
 import { Subscription } from 'rxjs';
-import { Expense } from '../../util/model/expense';
+import { Expense, ExpenseResponse } from '../../util/model/expense';
 import { ExpensesService } from '../../data-access/expenses.service';
 import { DataTableComponent } from '../../../shared/ui/data-table/data-table.component';
 import { ExpensesTableFields } from '../../../shared/model/table';
@@ -27,7 +27,7 @@ export class ExpenseDashboardComponent implements OnInit, OnDestroy{
   filterOptions: FilterOptions = new FilterOptions();
   _dialogSub: Subscription = new Subscription();
   _expensesSub: Subscription = new Subscription();
-  expenses: Expense[] = [];
+  expensesResponse?: ExpenseResponse;
   expenseFields: ExpensesTableFields = new ExpensesTableFields;
   
   constructor(
@@ -53,8 +53,8 @@ export class ExpenseDashboardComponent implements OnInit, OnDestroy{
   }
 
   private getExpenses(): void {
-    this._expensesSub = this.expenseService.getExpenses().subscribe((resp: Expense[]) => {
-      this.expenses = resp;
+    this._expensesSub = this.expenseService.getExpenses().subscribe((resp: ExpenseResponse) => {
+      this.expensesResponse = resp;
     });
   }
 

@@ -5,5 +5,5 @@
 
 <!-- Expense list -->
 <div class="data-table">
-  <app-data-table [data]="expenses" [fields]="expenseFields" [showHeader]="true" (itemClicked)="openExpenseDetailModal($event)"></app-data-table>
+  <app-data-table [data]="expensesResponse?.expenses" [fields]="expenseFields" [showHeader]="true" (itemClicked)="openExpenseDetailModal($event)"></app-data-table>
 </div>

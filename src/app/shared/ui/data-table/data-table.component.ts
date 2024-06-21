@@ -12,7 +12,7 @@ import { MatTableModule } from '@angular/material/table';
   styleUrl: './data-table.component.scss'
 })
 export class DataTableComponent {
-  @Input() data: any;
+  @Input() data: any | undefined;
   @Input() showHeader: boolean = true;
   @Output() itemClicked = new EventEmitter();
   @Input() fields: any;
