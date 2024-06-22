@@ -4,9 +4,16 @@
   </div>
 
   <div class="right-side">
-    <button mat-flat-button color="basic" (click)="changeDate()"><i class="fa-solid fa-calendar"></i> {{filterOptions.dateStart | date:'dd/MM/YY'}} - {{filterOptions.dateEnd | date:'dd/MM/YY'}}</button>
+    <mat-form-field>
+      <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+        <input matStartDate formControlName="start" placeholder="Start date">
+        <input matEndDate formControlName="end" placeholder="End date">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matIconPrefix [for]="picker">asd</mat-datepicker-toggle>
+      <mat-date-range-picker #picker (closed)="changeDate()"></mat-date-range-picker>
+    </mat-form-field>
     <app-type-select [typeOptions]="typeOptions" (changeSelect)="changeType($event)"></app-type-select>
-    <button mat-flat-button color="basic" (click)="changeOrder()"><i class="fa-solid" [ngClass]="filterOptions.order === 'ASC' ? 'fa-sort-up' : 'fa-sort-down'"></i> Change Order</button>
+    <button mat-flat-button color="basic" [ngClass]="filterOptions.order === 'ASC' ? 'asc' : 'desc'" (click)="changeOrder()"><i class="fa fa-sort-up"></i> Change Order</button>
   </div>
 
 </div>

@@ -7,9 +7,32 @@
   .right-side {
     display: flex;
     justify-content: flex-end;
-    width: 50%;
     button, app-type-select {
       margin: 0 0 0 8px;
     }
+  }
+}
+button.desc {
+  .fa-sort-up {
+    transform: rotate(180deg);
+  }
+}
+::ng-deep mat-form-field {
+  height: 36px;
+  .mdc-text-field--filled {
+    height: 36px;
+    min-height: 36px;
+    border-radius: 20px;
+    .mat-mdc-form-field-flex {
+      height: 36px;
+      .mat-mdc-form-field-infix {
+        max-height: 36px;
+        min-height: 36px;
+        padding: 6px 0;
+      }
+    }
+  }
+  .mdc-line-ripple:before {
+    display: none;
   }
 }

@@ -1,10 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { FilterOptions } from '../../model/filter-options';
 import { ValueType } from '../../model/types';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TypeSelectComponent } from '../type-select/type-select.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { provideNativeDateAdapter } from '@angular/material/core';
 
 @Component({
   selector: 'app-action-bar',
@@ -13,24 +16,38 @@ import { TypeSelectComponent } from '../type-select/type-select.component';
     CommonModule,
     MatButton,
     FormsModule,
-    TypeSelectComponent
+    TypeSelectComponent,
+    MatFormFieldModule, 
+    MatDatepickerModule, 
+    ReactiveFormsModule
   ],
+  providers: [provideNativeDateAdapter()],
   templateUrl: './action-bar.component.html',
   styleUrl: './action-bar.component.scss'
 })
-export class ActionBarComponent {
+export class ActionBarComponent implements OnInit {
   @Output() addNew = new EventEmitter();
   @Output() filterChange = new EventEmitter();
   @Input() filterOptions!: FilterOptions;
   @Input() typeOptions?: ValueType[];
   selectedType?: ValueType;
+  range = new FormGroup({
+    start: new FormControl<Date | null>(null),
+    end: new FormControl<Date | null>(null),
+  });
+
+  ngOnInit(): void {
+    this.range.patchValue({start: this.filterOptions.dateStart, end: this.filterOptions.dateEnd})
+  }
 
   addEvent(): void {
     this.addNew.emit();
   }
 
   changeDate(): void {
-    console.log('change Date');
+    this.filterOptions.dateStart = this.range.get('start')?.value || this.filterOptions.dateStart;
+    this.filterOptions.dateEnd = this.range.get('end')?.value || this.filterOptions.dateEnd;
+    this.filterChange.emit();
   }
 
   changeType(event: string): void {

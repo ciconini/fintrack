@@ -21,7 +21,7 @@ export class TypeSelectComponent {
   @Input() typeOptions?: ValueType[];
   @Output() changeSelect = new EventEmitter();
   selectedType: ValueType = {label: 'ALL TYPES', icon: ''};
-  showOptions: boolean = true;
+  showOptions: boolean = false;
 
   public selectType(option: ValueType): void {
     this.selectedType = option;
