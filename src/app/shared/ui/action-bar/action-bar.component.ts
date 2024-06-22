@@ -30,14 +30,13 @@ export class ActionBarComponent implements OnInit {
   @Output() filterChange = new EventEmitter();
   @Input() filterOptions!: FilterOptions;
   @Input() typeOptions?: ValueType[];
-  selectedType?: ValueType;
   range = new FormGroup({
     start: new FormControl<Date | null>(null),
     end: new FormControl<Date | null>(null),
   });
 
   ngOnInit(): void {
-    this.range.patchValue({start: this.filterOptions.dateStart, end: this.filterOptions.dateEnd})
+    this.range.patchValue({start: this.filterOptions.dateStart, end: this.filterOptions.dateEnd});
   }
 
   addEvent(): void {
@@ -58,5 +57,9 @@ export class ActionBarComponent implements OnInit {
   changeOrder(): void {
     this.filterOptions.order = this.filterOptions.order === 'ASC' ? 'DESC' : 'ASC';
     this.filterChange.emit();
+  }
+
+  get selectedType() {
+    return this.typeOptions?.find(e => e.label === this.filterOptions.type) || {label: 'ALL TYPES', icon: ''};
   }
 }

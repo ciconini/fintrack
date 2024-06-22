@@ -12,7 +12,9 @@
       <mat-datepicker-toggle matIconPrefix [for]="picker">asd</mat-datepicker-toggle>
       <mat-date-range-picker #picker (closed)="changeDate()"></mat-date-range-picker>
     </mat-form-field>
-    <app-type-select [typeOptions]="typeOptions" (changeSelect)="changeType($event)"></app-type-select>
+
+    <app-type-select [typeOptions]="typeOptions" [selectedType]="selectedType" (changeSelect)="changeType($event)"></app-type-select>
+
     <button mat-flat-button color="basic" [ngClass]="filterOptions.order === 'ASC' ? 'asc' : 'desc'" (click)="changeOrder()"><i class="fa fa-sort-up"></i> Change Order</button>
   </div>
 

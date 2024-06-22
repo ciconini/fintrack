@@ -79,4 +79,15 @@ export class ExpensesService {
       })
     )
   }
+
+  getExpenseValue(filterOptions: FilterOptions): Observable<number> {
+    return this.http.post<number>(`${environment.api}/expenses/value`, filterOptions).pipe(
+      map(response => {
+        return response
+      }),
+      catchError((error: HttpErrorResponse) => {
+        return throwError(() => error)
+      })
+    )
+  }
 }

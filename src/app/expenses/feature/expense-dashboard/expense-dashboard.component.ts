@@ -11,11 +11,13 @@ import { ExpensesTableFields } from '../../../shared/model/table';
 import { ActionBarComponent } from '../../../shared/ui/action-bar/action-bar.component';
 import { TypesService } from '../../../shared/data-access/types.service';
 import { ValueType } from '../../../shared/model/types';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-expense-dashboard',
   standalone: true,
   imports: [
+    CommonModule,
     ButtonComponent, 
     DataTableComponent,
     ActionBarComponent
@@ -31,6 +33,7 @@ export class ExpenseDashboardComponent implements OnInit, OnDestroy{
   expensesResponse?: ExpenseResponse;
   expenseFields: ExpensesTableFields = new ExpensesTableFields;
   typeOptions: ValueType[] = [];
+  expensesValue: number = 0;
   
   constructor(
     public dialog: MatDialog,
@@ -39,6 +42,9 @@ export class ExpenseDashboardComponent implements OnInit, OnDestroy{
   ){}
 
   ngOnInit(): void {
+    if (localStorage.getItem('filters')){
+      this.filterOptions = JSON.parse(localStorage.getItem('filters') as string)
+    }
     this.getExpenses();
     this.getTypeOptions();
   }
@@ -50,21 +56,34 @@ export class ExpenseDashboardComponent implements OnInit, OnDestroy{
       data: {id: id}
     });
     dialogRef.afterClosed().subscribe(result => {
+      console.log("🚀 ~ ExpenseDashboardComponent ~ dialogRef.afterClosed ~ result:", result)
       if(result.event !== 'cancel') {
         this.getExpenses();
       }
     });
   }
 
-  public getExpenses(): void {
+  public filterChanges(): void {
+    localStorage.setItem('filters', JSON.stringify(this.filterOptions));
+    this.getExpenses();
+  }
+
+  private getExpenses(): void {
     this._expensesSub = this.expenseService.filterExpenses(this.filterOptions).subscribe((resp: ExpenseResponse) => {
       this.expensesResponse = resp;
+      this.getExpensesValue();
     });
   }
 
   public getTypeOptions(): void {
     this._typeSub = this.typeService.getTypes().subscribe((types) => {
       this.typeOptions = types;
+    })
+  }
+
+  private getExpensesValue(): void {
+    this.expenseService.getExpenseValue(this.filterOptions).subscribe((resp: number) => {
+      this.expensesValue = resp
     })
   }
 

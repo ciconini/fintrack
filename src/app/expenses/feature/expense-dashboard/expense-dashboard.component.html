@@ -1,5 +1,5 @@
-<h1><i class="fa-solid fa-receipt"></i> Expenses</h1>
-<app-action-bar [filterOptions]="filterOptions" (addNew)="openExpenseDetailModal()" (filterChange)="getExpenses()" [typeOptions]="typeOptions"></app-action-bar>
+<h1><i class="fa-solid fa-receipt"></i> Expenses <small>{{expensesValue | currency:'EUR'}}</small></h1>
+<app-action-bar [filterOptions]="filterOptions" (addNew)="openExpenseDetailModal()" (filterChange)="filterChanges()" [typeOptions]="typeOptions"></app-action-bar>
 
 <!-- Expense list -->
 <div class="data-table">
