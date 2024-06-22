@@ -2,6 +2,7 @@ import { ValueType } from "../../../shared/model/types";
 
 
 export interface ExpenseResponse {
+  totalCount: number;
   count: number;
   expenses: Expense[];
   status: number;

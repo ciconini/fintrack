@@ -1,10 +1,10 @@
 export class FilterOptions {
   dateEnd: Date;
   dateStart: Date;
-  limit: number = 16;
+  limit: number = 10;
   order: string = 'DESC';
   orderBy: string = 'date';
-  page: number = 1;
+  page: number = 0;
   query?: string;
   type?: string;
 

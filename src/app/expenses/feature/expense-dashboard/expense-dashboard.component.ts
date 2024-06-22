@@ -12,6 +12,7 @@ import { ActionBarComponent } from '../../../shared/ui/action-bar/action-bar.com
 import { TypesService } from '../../../shared/data-access/types.service';
 import { ValueType } from '../../../shared/model/types';
 import { CommonModule } from '@angular/common';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-expense-dashboard',
@@ -20,7 +21,8 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     ButtonComponent, 
     DataTableComponent,
-    ActionBarComponent
+    ActionBarComponent,
+    MatPaginator
   ],
   templateUrl: './expense-dashboard.component.html',
   styleUrl: './expense-dashboard.component.scss'
@@ -43,7 +45,7 @@ export class ExpenseDashboardComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     if (localStorage.getItem('filters')){
-      this.filterOptions = JSON.parse(localStorage.getItem('filters') as string)
+      this.filterOptions = { ...JSON.parse(localStorage.getItem('filters') as string)}
     }
     this.getExpenses();
     this.getTypeOptions();
@@ -64,7 +66,12 @@ export class ExpenseDashboardComponent implements OnInit, OnDestroy{
   }
 
   public filterChanges(): void {
-    localStorage.setItem('filters', JSON.stringify(this.filterOptions));
+    localStorage.setItem('filters', JSON.stringify({
+      type: this.filterOptions.type,
+      dateEnd: this.filterOptions.dateEnd,
+      dateStart: this.filterOptions.dateStart,
+      order: this.filterOptions.order
+    }));
     this.getExpenses();
   }
 
@@ -85,6 +92,11 @@ export class ExpenseDashboardComponent implements OnInit, OnDestroy{
     this.expenseService.getExpenseValue(this.filterOptions).subscribe((resp: number) => {
       this.expensesValue = resp
     })
+  }
+
+  public handlePageEvent(event: PageEvent) {
+    this.filterOptions.page = event.pageIndex;
+    this.filterChanges()
   }
 
   ngOnDestroy(): void {
