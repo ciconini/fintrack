@@ -11,3 +11,11 @@ export class IncomesTableFields {
   type = "Type";
   value = "Value";
 }
+
+export class TaxesTableFields {
+  name = "Name";
+  value = "Value";
+  date = "Date";
+  _id = "ID";
+  type = "Type";
+}

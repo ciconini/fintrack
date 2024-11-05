@@ -1,11 +1,10 @@
 import { DefaultResponse } from "../../../shared/model/response";
 import { ValueType } from "../../../shared/model/types";
 
-
-export interface ExpenseResponse extends DefaultResponse {
-  expenses: Expense[];
+export interface TaxResponse extends DefaultResponse {
+  taxes: Tax[];
 }
-export interface Expense {
+export interface Tax {
   date: Date;
   id: string;
   name: string;
