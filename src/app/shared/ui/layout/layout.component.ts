@@ -22,9 +22,14 @@ export class LayoutComponent {
       icon: 'fa-solid fa-receipt'
     },
     {
+      label: 'Taxes',
+      url: '/taxes',
+      icon: 'fa-solid fa-file-invoice'
+    },
+    {
       label: 'Incomes',
       url: '/incomes',
-      icon:  'fa-solid fa-sack-dollar'
+      icon: 'fa-solid fa-sack-dollar'
     }
   ]
 }
