@@ -45,7 +45,7 @@ export class ExpenseDashboardComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     if (localStorage.getItem('filters')){
-      this.filterOptions = { ...JSON.parse(localStorage.getItem('filters') as string)}
+      this.filterOptions = { ...this.filterOptions, ...JSON.parse(localStorage.getItem('filters') as string)}
     }
     this.getExpenses();
     this.getTypeOptions();
@@ -59,7 +59,7 @@ export class ExpenseDashboardComponent implements OnInit, OnDestroy{
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log("🚀 ~ ExpenseDashboardComponent ~ dialogRef.afterClosed ~ result:", result)
-      if(result.event !== 'cancel') {
+      if(result?.event !== 'cancel') {
         this.getExpenses();
       }
     });
@@ -70,7 +70,8 @@ export class ExpenseDashboardComponent implements OnInit, OnDestroy{
       type: this.filterOptions.type,
       dateEnd: this.filterOptions.dateEnd,
       dateStart: this.filterOptions.dateStart,
-      order: this.filterOptions.order
+      order: this.filterOptions.order,
+      limit: this.filterOptions.limit
     }));
     this.getExpenses();
   }

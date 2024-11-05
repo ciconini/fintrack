@@ -5,8 +5,10 @@
 <div class="data-table">
   <app-data-table [data]="expensesResponse?.expenses" [fields]="expenseFields" [showHeader]="true" (itemClicked)="openExpenseDetailModal($event)"></app-data-table>
 </div>
-<mat-paginator [length]="expensesResponse?.totalCount"
-  [pageSize]="filterOptions.limit"
-  aria-label="Select page"
-  (page)="handlePageEvent($event)">
-</mat-paginator>
+@if(expensesResponse && expensesResponse.expenses.length > 0) {
+  <mat-paginator [length]="expensesResponse.totalCount"
+    [pageSize]="filterOptions.limit"
+    aria-label="Select page"
+    (page)="handlePageEvent($event)">
+  </mat-paginator>
+}
