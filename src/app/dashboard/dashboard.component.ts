@@ -3,11 +3,21 @@ import { ExpenseResponse } from '../expenses/util/model/expense';
 import { Subscription } from 'rxjs';
 import { ExpensesService } from '../expenses/data-access/expenses.service';
 import { CommonModule } from '@angular/common';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { ExpenseReportComponent } from './feature/expense-report/expense-report.component';
+import { TaxReportComponent } from './feature/tax-report/tax-report.component';
+import { IncomeReportComponent } from './feature/income-report/income-report.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    MatGridListModule,
+    ExpenseReportComponent,
+    TaxReportComponent,
+    IncomeReportComponent
+  ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
@@ -20,12 +30,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this._expenseSub = this.expenseService.getExpenses().subscribe((resp:ExpenseResponse) => {
-      this.expenseResponse = resp;
-    })
+    
   }
 
   ngOnDestroy(): void {
-    this._expenseSub.unsubscribe();
+    
   }
 }

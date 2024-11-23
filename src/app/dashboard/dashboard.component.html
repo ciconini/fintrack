@@ -1,16 +1,6 @@
-<div class="dashboard-reports">
-  <div class="expenses-reports">
-    <h2>Expenses</h2>
-    <ul class="expense-list">
-      @for (expense of expenseResponse?.expenses; track $index) {
-        <li class="expense-item">
-          <div class="expense-type">{{expense.type}}</div>
-          <div class="expense-info">
-            {{expense.date | date:'dd/MM/yy'}} {{expense.name}}
-          </div>
-          <div class="expense-value">{{expense.value | currency:'EUR'}}</div>
-        </li>
-      }
-    </ul>
-  </div>
-</div>
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile><app-expense-report></app-expense-report></mat-grid-tile>
+  <mat-grid-tile><app-tax-report></app-tax-report></mat-grid-tile>
+  <mat-grid-tile><app-income-report></app-income-report></mat-grid-tile>
+  <!-- <mat-grid-tile>4</mat-grid-tile> -->
+</mat-grid-list>
