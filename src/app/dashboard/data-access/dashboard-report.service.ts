@@ -14,7 +14,7 @@ export class DashboardReportService {
   ) {}
 
   public getExpensesReport(): Observable<ReportResponse> {
-    return this.http.get<ReportResponse>(`${environment.api}/report/expenses`).pipe(
+    return this.http.get<ReportResponse>(`${environment.api}/reports/expenses`).pipe(
       map(response => {
         return response
       }),

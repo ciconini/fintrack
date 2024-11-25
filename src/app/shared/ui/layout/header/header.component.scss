@@ -2,9 +2,10 @@
 $width: 260px;
 
 header {
+  background-color: $light;
   .header-logo {
     max-width: $width;
-    background-color: $light;
+    border-right: 1px solid $medium;
     a {
       display: block;
       padding: 4px 0;

@@ -7,4 +7,6 @@ export interface DefaultResponse {
 
 export interface ReportResponse {
   data: any[]
+  status: number;
+  success: boolean;
 }

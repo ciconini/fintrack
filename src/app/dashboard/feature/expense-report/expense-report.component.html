@@ -1,1 +1,18 @@
-<p>expense-report works!</p>
+<div>
+  <h2>Expenses in {{currDate | date:'MMM/Y'}}</h2>
+  <mat-card>
+    @if (results) {
+      <ngx-charts-bar-vertical
+        [view]="[0, 350]"
+        [xAxis]="xAxis"
+        [yAxis]="yAxis"
+        [results]="results"
+        [wrapTicks]="true"
+        [showDataLabel]="true"
+        [showGridLines]="false"
+        [rotateXAxisTicks]="true"
+        >
+      </ngx-charts-bar-vertical>
+    }
+  </mat-card>
+</div>
