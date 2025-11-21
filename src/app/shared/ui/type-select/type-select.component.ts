@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { ValueType } from '../../model/types';
 import { FormsModule } from '@angular/forms';
@@ -8,11 +8,10 @@ import { MatSelectModule } from '@angular/material/select';
 @Component({
     selector: 'app-type-select',
     imports: [
-        CommonModule,
-        MatButton,
-        FormsModule,
-        MatSelectModule
-    ],
+    MatButton,
+    FormsModule,
+    MatSelectModule
+],
     templateUrl: './type-select.component.html',
     styleUrl: './type-select.component.scss'
 })
