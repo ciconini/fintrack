@@ -1,4 +1,4 @@
-@import 'colors';
+@use 'colors' as *;
 .mat-mdc-dialog-surface {
   border-radius: 10px;
 }

@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ButtonComponent } from '../../../shared/ui/button/button.component';
 import { FilterOptions } from '../../../shared/model/filter-options';
 import { MatDialog } from '@angular/material/dialog';
 import { ExpenseDetailComponent } from '../expense-detail/expense-detail.component';
@@ -18,7 +17,6 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
     selector: 'app-expense-dashboard',
     imports: [
         CommonModule,
-        ButtonComponent,
         DataTableComponent,
         ActionBarComponent,
         MatPaginator

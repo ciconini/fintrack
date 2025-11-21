@@ -1,4 +1,4 @@
-@import 'colors';
+@use 'colors' as *;
 
 .table-container {
   background-color: $light;

@@ -5,14 +5,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ValueType, saveType } from '../../../shared/model/types';
 import { TypesService } from '../../../shared/data-access/types.service';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { MAT_DATE_LOCALE, provideNativeDateAdapter } from '@angular/material/core';
 import { MAT_DIALOG_DATA, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
 import { MatButton } from '@angular/material/button';
 import { ExpensesService } from '../../data-access/expenses.service';
 import { Expense } from '../../util/model/expense';
-import { AsyncPipe } from '@angular/common';
 
 @Component({
     selector: 'app-expense-detail',
@@ -31,8 +30,7 @@ import { AsyncPipe } from '@angular/common';
         MatDialogContent,
         MatDialogActions,
         MatDialogClose,
-        MatButton,
-        AsyncPipe
+        MatButton
     ],
     templateUrl: './expense-detail.component.html',
     styleUrl: './expense-detail.component.scss'

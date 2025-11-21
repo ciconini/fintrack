@@ -1,8 +1,8 @@
-@import 'assets/scss/colors.scss';
-@import 'assets/scss/reset.scss';
-@import 'assets/scss/fonts.scss';
+@use 'assets/scss/colors.scss';
+@use 'assets/scss/reset.scss';
+@use 'assets/scss/fonts.scss';
 
-@import 'assets/scss/components/buttons.scss';
+@use 'assets/scss/components/buttons.scss';
 
 html, body { min-height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

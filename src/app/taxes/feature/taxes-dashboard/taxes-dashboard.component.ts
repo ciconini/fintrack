@@ -3,7 +3,6 @@ import { FilterOptions } from '../../../shared/model/filter-options';
 import { Subscription } from 'rxjs';
 import { TaxResponse } from '../../util/model/tax';
 import { CommonModule } from '@angular/common';
-import { ButtonComponent } from '../../../shared/ui/button/button.component';
 import { DataTableComponent } from '../../../shared/ui/data-table/data-table.component';
 import { ActionBarComponent } from '../../../shared/ui/action-bar/action-bar.component';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
@@ -17,7 +16,6 @@ import { TaxesTableFields } from '../../../shared/model/table';
     selector: 'app-taxes-dashboard',
     imports: [
         CommonModule,
-        ButtonComponent,
         DataTableComponent,
         ActionBarComponent,
         MatPaginator
