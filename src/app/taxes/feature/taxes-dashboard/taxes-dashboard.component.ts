@@ -14,17 +14,16 @@ import { ValueType } from '../../../shared/model/types';
 import { TaxesTableFields } from '../../../shared/model/table';
 
 @Component({
-  selector: 'app-taxes-dashboard',
-  standalone: true,
-  imports: [
-    CommonModule,
-    ButtonComponent, 
-    DataTableComponent,
-    ActionBarComponent,
-    MatPaginator
-  ],
-  templateUrl: './taxes-dashboard.component.html',
-  styleUrl: './taxes-dashboard.component.scss'
+    selector: 'app-taxes-dashboard',
+    imports: [
+        CommonModule,
+        ButtonComponent,
+        DataTableComponent,
+        ActionBarComponent,
+        MatPaginator
+    ],
+    templateUrl: './taxes-dashboard.component.html',
+    styleUrl: './taxes-dashboard.component.scss'
 })
 export class TaxesDashboardComponent {
   filterOptions: FilterOptions = new FilterOptions();

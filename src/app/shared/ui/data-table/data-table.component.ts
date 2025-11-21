@@ -5,11 +5,10 @@ import { TypePipe } from '../../util/pipes/type.pipe';
 import { MatTableModule } from '@angular/material/table';
 
 @Component({
-  selector: 'app-data-table',
-  standalone: true,
-  imports: [CommonModule, TypePipe, MatTableModule],
-  templateUrl: './data-table.component.html',
-  styleUrl: './data-table.component.scss'
+    selector: 'app-data-table',
+    imports: [CommonModule, TypePipe, MatTableModule],
+    templateUrl: './data-table.component.html',
+    styleUrl: './data-table.component.scss'
 })
 export class DataTableComponent {
   @Input() data: any | undefined;

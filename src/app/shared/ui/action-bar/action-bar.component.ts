@@ -10,20 +10,19 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { provideNativeDateAdapter } from '@angular/material/core';
 
 @Component({
-  selector: 'app-action-bar',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatButton,
-    FormsModule,
-    TypeSelectComponent,
-    MatFormFieldModule, 
-    MatDatepickerModule, 
-    ReactiveFormsModule
-  ],
-  providers: [provideNativeDateAdapter()],
-  templateUrl: './action-bar.component.html',
-  styleUrl: './action-bar.component.scss'
+    selector: 'app-action-bar',
+    imports: [
+        CommonModule,
+        MatButton,
+        FormsModule,
+        TypeSelectComponent,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        ReactiveFormsModule
+    ],
+    providers: [provideNativeDateAdapter()],
+    templateUrl: './action-bar.component.html',
+    styleUrl: './action-bar.component.scss'
 })
 export class ActionBarComponent implements OnInit {
   @Output() addNew = new EventEmitter();

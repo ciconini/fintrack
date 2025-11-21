@@ -5,14 +5,13 @@ import { DashboardReportService } from '../../data-access/dashboard-report.servi
 import { ReportResponse } from '../../../shared/model/response';
 
 @Component({
-  selector: 'app-expense-report',
-  standalone: true,
-  imports: [
-    MatCardModule,
-    NgxChartsModule
-  ],
-  templateUrl: './expense-report.component.html',
-  styleUrl: './expense-report.component.scss'
+    selector: 'app-expense-report',
+    imports: [
+        MatCardModule,
+        NgxChartsModule
+    ],
+    templateUrl: './expense-report.component.html',
+    styleUrl: './expense-report.component.scss'
 })
 export class ExpenseReportComponent implements OnInit {
   currDate: Date = new Date();

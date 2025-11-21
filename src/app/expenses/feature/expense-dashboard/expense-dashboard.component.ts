@@ -15,17 +15,16 @@ import { CommonModule } from '@angular/common';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 
 @Component({
-  selector: 'app-expense-dashboard',
-  standalone: true,
-  imports: [
-    CommonModule,
-    ButtonComponent, 
-    DataTableComponent,
-    ActionBarComponent,
-    MatPaginator
-  ],
-  templateUrl: './expense-dashboard.component.html',
-  styleUrl: './expense-dashboard.component.scss'
+    selector: 'app-expense-dashboard',
+    imports: [
+        CommonModule,
+        ButtonComponent,
+        DataTableComponent,
+        ActionBarComponent,
+        MatPaginator
+    ],
+    templateUrl: './expense-dashboard.component.html',
+    styleUrl: './expense-dashboard.component.scss'
 })
 export class ExpenseDashboardComponent implements OnInit, OnDestroy{
   filterOptions: FilterOptions = new FilterOptions();

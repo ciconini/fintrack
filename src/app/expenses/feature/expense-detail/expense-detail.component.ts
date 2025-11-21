@@ -15,28 +15,27 @@ import { Expense } from '../../util/model/expense';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-expense-detail',
-  standalone: true,
-  providers: [
-    provideNativeDateAdapter(),
-    {provide: MAT_DATE_LOCALE, useValue: 'pt-PT'}
-  ],
-  imports: [
-    FormsModule, 
-    ReactiveFormsModule,
-    MatSelectModule, 
-    CurrencyMaskModule, 
-    MatInputModule,
-    MatDatepickerModule,
-    MatDialogTitle,
-    MatDialogContent,
-    MatDialogActions,
-    MatDialogClose,
-    MatButton,
-    AsyncPipe
-  ],
-  templateUrl: './expense-detail.component.html',
-  styleUrl: './expense-detail.component.scss'
+    selector: 'app-expense-detail',
+    providers: [
+        provideNativeDateAdapter(),
+        { provide: MAT_DATE_LOCALE, useValue: 'pt-PT' }
+    ],
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        MatSelectModule,
+        CurrencyMaskModule,
+        MatInputModule,
+        MatDatepickerModule,
+        MatDialogTitle,
+        MatDialogContent,
+        MatDialogActions,
+        MatDialogClose,
+        MatButton,
+        AsyncPipe
+    ],
+    templateUrl: './expense-detail.component.html',
+    styleUrl: './expense-detail.component.scss'
 })
 export class ExpenseDetailComponent implements OnInit, OnDestroy {
   form: FormGroup;

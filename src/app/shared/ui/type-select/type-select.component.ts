@@ -6,16 +6,15 @@ import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 
 @Component({
-  selector: 'app-type-select',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatButton,
-    FormsModule,
-    MatSelectModule
-  ],
-  templateUrl: './type-select.component.html',
-  styleUrl: './type-select.component.scss'
+    selector: 'app-type-select',
+    imports: [
+        CommonModule,
+        MatButton,
+        FormsModule,
+        MatSelectModule
+    ],
+    templateUrl: './type-select.component.html',
+    styleUrl: './type-select.component.scss'
 })
 export class TypeSelectComponent{
   @Input() typeOptions?: ValueType[];

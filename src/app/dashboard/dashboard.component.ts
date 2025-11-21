@@ -9,17 +9,16 @@ import { TaxReportComponent } from './feature/tax-report/tax-report.component';
 import { IncomeReportComponent } from './feature/income-report/income-report.component';
 
 @Component({
-  selector: 'app-dashboard',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatGridListModule,
-    ExpenseReportComponent,
-    TaxReportComponent,
-    IncomeReportComponent
-  ],
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss'
+    selector: 'app-dashboard',
+    imports: [
+        CommonModule,
+        MatGridListModule,
+        ExpenseReportComponent,
+        TaxReportComponent,
+        IncomeReportComponent
+    ],
+    templateUrl: './dashboard.component.html',
+    styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent implements OnInit, OnDestroy {
   _expenseSub: Subscription = new Subscription;
