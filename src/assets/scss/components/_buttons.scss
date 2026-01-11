@@ -1,0 +1,5 @@
+@use 'colors.scss' as *;
+
+button.mat-basic {
+  background-color: $light !important;
+}

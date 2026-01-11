@@ -1,0 +1,15 @@
+@use 'colors' as *;
+
+.table-container {
+  background-color: $light;
+  padding: 8px;
+  border-radius: 10px;
+  table {
+    background-color: $light;
+    --bs-table-bg: $light;
+    .id-field {
+      color: $medium;
+      font-size: 10px;
+    }
+  }
+}

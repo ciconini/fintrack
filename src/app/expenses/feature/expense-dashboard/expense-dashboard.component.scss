@@ -1,0 +1,10 @@
+@use 'colors' as *;
+.mat-mdc-dialog-surface {
+  border-radius: 10px;
+}
+h1 {
+  small {
+    font-size: 24px;
+    color: $medium;
+  }
+}

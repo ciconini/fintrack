@@ -1,0 +1,41 @@
+@use 'colors' as *;
+
+.action-bar {
+  margin-top: 16px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  .right-side {
+    display: flex;
+    justify-content: flex-end;
+    button, app-type-select {
+      margin: 0 0 0 8px;
+    }
+  }
+  ::ng-deep mat-form-field {
+    height: 36px;
+    .mdc-text-field--filled {
+      background-color: $light!important;
+      height: 36px;
+      min-height: 36px;
+      border-radius: 20px;
+      .mat-mdc-form-field-flex {
+        height: 36px;
+        .mat-mdc-form-field-infix {
+          max-height: 36px;
+          min-height: 36px;
+          padding: 6px 0;
+        }
+      }
+    }
+    .mdc-line-ripple:before {
+      display: none;
+    }
+  }
+}
+button.desc {
+  .fa-sort-up {
+    transform: rotate(180deg);
+  }
+}

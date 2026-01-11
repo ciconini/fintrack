@@ -1,0 +1,51 @@
+<h2 mat-dialog-title>Add new Expense</h2>
+<mat-dialog-content>
+  <form [formGroup]="form">
+    <div class="form-line">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+          <input formControlName="name" matInput>
+      </mat-form-field>
+    </div>
+    <div class="form-line">
+      @if (typeOptions && typeOptions.length > 0) {
+        <mat-form-field>
+          <mat-label>Expense Type</mat-label>
+          <mat-select formControlName="type">
+            @for (option of typeOptions; track $index) {
+              <mat-option [value]="option.label"><i [class]="option.icon"></i> {{option.label}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      }
+    </div>
+    <div class="form-line">
+      <mat-form-field>
+        <mat-label>Value</mat-label>
+          <input formControlName="value" matInput currencyMask [options]="{prefix: '€ ',thousands:'.',decimal:',', align:'left'}" required>
+      </mat-form-field>
+    </div>
+    <div class="form-line">
+      <mat-form-field>
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <div class="d-flex justify-content-between w-100">
+    <div class="left-side">
+      @if (data.id) {
+        <button mat-button color="warn" align="start" (click)="deleteExpense()">Delete</button>
+      }
+    </div>
+    <div class="right-side">
+      <button mat-button (click)="cancel()">Cancel</button>
+      <button mat-flat-button color="primary" (click)="saveExpense()" [mat-dialog-close]="">Save</button>
+    </div>
+  </div>
+</mat-dialog-actions>

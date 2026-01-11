@@ -1,12 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ExpenseResponse } from '../expenses/util/model/expense';
+import { Subscription } from 'rxjs';
+import { ExpensesService } from '../expenses/data-access/expenses.service';
+
+import { MatGridListModule } from '@angular/material/grid-list';
+import { ExpenseReportComponent } from './feature/expense-report/expense-report.component';
+import { TaxReportComponent } from './feature/tax-report/tax-report.component';
+import { IncomeReportComponent } from './feature/income-report/income-report.component';
 
 @Component({
-  selector: 'app-dashboard',
-  standalone: true,
-  imports: [],
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss'
+    selector: 'app-dashboard',
+    imports: [
+    MatGridListModule,
+    ExpenseReportComponent,
+    TaxReportComponent,
+    IncomeReportComponent
+],
+    templateUrl: './dashboard.component.html',
+    styleUrl: './dashboard.component.scss'
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit, OnDestroy {
+  _expenseSub: Subscription = new Subscription;
+  expenseResponse?: ExpenseResponse;
 
+  constructor(
+    private expenseService: ExpensesService
+  ) {}
+
+  ngOnInit(): void {
+    
+  }
+
+  ngOnDestroy(): void {
+    
+  }
 }

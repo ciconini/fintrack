@@ -1,0 +1,14 @@
+<h1><i class="fa-solid fa-receipt"></i> Expenses <small>{{taxesValue | currency:'EUR'}}</small></h1>
+<app-action-bar [filterOptions]="filterOptions" (addNew)="openExpenseDetailModal()" (filterChange)="filterChanges()" [typeOptions]="typeOptions"></app-action-bar>
+
+<!-- Expense list -->
+<div class="data-table">
+  <app-data-table [data]="taxesResponse?.taxes" [fields]="taxFields" [showHeader]="true" (itemClicked)="openExpenseDetailModal($event)"></app-data-table>
+</div>
+@if(taxesResponse && taxesResponse.taxes.length > 0) {
+  <mat-paginator [length]="taxesResponse.totalCount"
+    [pageSize]="filterOptions.limit"
+    aria-label="Select page"
+    (page)="handlePageEvent($event)">
+  </mat-paginator>
+}
